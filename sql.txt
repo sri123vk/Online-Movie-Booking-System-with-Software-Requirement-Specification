@@ -1,0 +1,497 @@
+
+Setting environment for using XAMPP for Windows.
+dell@DESKTOP-PMTRB6Q c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.38-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database movie_booking;
+Query OK, 1 row affected (0.30 sec)
+
+MariaDB [(none)]> CREATE TABLE Persons (
+    ->     PersonID int,
+    ->
+    ->
+    -> \CREATE TABLE Persons (
+mysql: Character set 'REATE' is not a compiled character set and is not specified in the 'C:\Program Files\MariaDB 10.1\share\charsets\Index.xml' file
+Charset is not found
+    ->     PersonID int,
+    ->     LastName varchar(255),
+    -> Bye
+
+dell@DESKTOP-PMTRB6Q c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 3
+Server version: 10.1.38-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use movie_booking
+Database changed
+MariaDB [movie_booking]> create table admin(password,varchar(255));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'varchar(255))' at line 1
+MariaDB [movie_booking]> create table admin(password,varchar);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'varchar)' at line 1
+MariaDB [movie_booking]> create table admin(password varchar(255));
+Query OK, 0 rows affected (0.70 sec)
+
+MariaDB [movie_booking]> insert into admin('admin');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''admin')' at line 1
+MariaDB [movie_booking]> insert into admin("admin");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"admin")' at line 1
+MariaDB [movie_booking]> insert into admin values('admin');
+Query OK, 1 row affected (0.14 sec)
+
+MariaDB [movie_booking]> select * from admin;
++----------+
+| password |
++----------+
+| admin    |
++----------+
+1 row in set (0.00 sec)
+
+MariaDB [movie_booking]> create database sonoo;
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    4
+Current database: movie_booking
+
+Query OK, 1 row affected (1.94 sec)
+
+MariaDB [movie_booking]> use sonoo;
+Database changed
+MariaDB [sonoo]> create table emp(id int(10),name varchar(40),age int(3));
+Query OK, 0 rows affected (1.87 sec)
+
+MariaDB [sonoo]> insert into table values(1,"sri",50);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'table values(1,"sri",50)' at line 1
+MariaDB [sonoo]> insert into emp values(1,"sri",50);
+Query OK, 1 row affected (0.19 sec)
+
+MariaDB [sonoo]> use movie_booking
+Database changed
+MariaDB [movie_booking]> select password from admin;
++----------+
+| password |
++----------+
+| admin    |
++----------+
+1 row in set (0.52 sec)
+
+MariaDB [movie_booking]> create table admin(username varchar(255),password varchar(255));
+ERROR 1050 (42S01): Table 'admin' already exists
+MariaDB [movie_booking]> create table user(username varchar(255),password varchar(255));
+Query OK, 0 rows affected (1.03 sec)
+
+MariaDB [movie_booking]> insert into user values('srivk,'srivk');
+    '>
+    '> Bye
+
+dell@DESKTOP-PMTRB6Q c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 20
+Server version: 10.1.38-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use movie_booking
+Database changed
+MariaDB [movie_booking]> insert into user values('srivk,'srivk');
+    '>
+    '> Bye
+
+dell@DESKTOP-PMTRB6Q c:\xampp
+# mysql -u root -p
+Enter password:
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 21
+Server version: 10.1.38-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use movie_booking
+Database changed
+MariaDB [movie_booking]> insert into user("srivk","srivk");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '"srivk","srivk")' at line 1
+MariaDB [movie_booking]> insert into user values("srivk","srivk");
+Query OK, 1 row affected (0.12 sec)
+
+MariaDB [movie_booking]> insert into user values("srivk","srivk");
+Query OK, 1 row affected (0.32 sec)
+
+MariaDB [movie_booking]> create table movie(mid int, mname varchar(255),showtiming varchar(255),date varchar(255),seats int,totalseats int,fprice int ,sprice int);
+Query OK, 0 rows affected (0.66 sec)
+
+MariaDB [movie_booking]> insert into movie(1,"bahubali","16.00","20-02-20",5,10,200,100);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1,"bahubali","16.00","20-02-20",5,10,200,100)' at line 1
+MariaDB [movie_booking]> insert into movie values(1,"bahubali","16.00","20-02-20",5,10,200,100);
+Query OK, 1 row affected (0.18 sec)
+
+MariaDB [movie_booking]> insert into movie values(2,"darbar","19.00","20-02-20",2,10,300,150);
+Query OK, 1 row affected (0.22 sec)
+
+MariaDB [movie_booking]> insert into movie values(3,"parasite","20.00","20-02-20",9,10,200,75);
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [movie_booking]> select username,password from user where username="srivk" and password="srivk";
++----------+----------+
+| username | password |
++----------+----------+
+| srivk    | srivk    |
+| srivk    | srivk    |
++----------+----------+
+2 rows in set (0.10 sec)
+
+MariaDB [movie_booking]> delete from user where username="srivk" and password="srivk";
+Query OK, 2 rows affected (0.13 sec)
+
+MariaDB [movie_booking]> insert into user values("srivk","srivk");
+Query OK, 1 row affected (0.14 sec)
+
+MariaDB [movie_booking]> select username,password from user where username="srivk" and password="srivk";
++----------+----------+
+| username | password |
++----------+----------+
+| srivk    | srivk    |
++----------+----------+
+1 row in set (0.00 sec)
+
+MariaDB [movie_booking]> desc movie;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| mid        | int(11)      | YES  |     | NULL    |       |
+| mname      | varchar(255) | YES  |     | NULL    |       |
+| showtiming | varchar(255) | YES  |     | NULL    |       |
+| date       | varchar(255) | YES  |     | NULL    |       |
+| seats      | int(11)      | YES  |     | NULL    |       |
+| totalseats | int(11)      | YES  |     | NULL    |       |
+| fprice     | int(11)      | YES  |     | NULL    |       |
+| sprice     | int(11)      | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+8 rows in set (0.36 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+-----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date      | seats | totalseats | fprice | sprice |
++------+----------+------------+-----------+-------+------------+--------+--------+
+|    1 | bahubali | 16.00      | 20-02-20  |     5 |         10 |    200 |    100 |
+|    2 | darbar   | 19.00      | 20-02-20  |     2 |         10 |    300 |    150 |
+|    3 | parasite | 20.00      | 20-02-20  |     9 |         10 |    200 |     75 |
+|   11 | kabali   | null       | 4/10/2020 |     8 |         10 |    200 |    100 |
++------+----------+------------+-----------+-------+------------+--------+--------+
+4 rows in set (0.02 sec)
+
+MariaDB [movie_booking]> select * from movie;
+Empty set (0.00 sec)
+
+MariaDB [movie_booking]> select * from movie;
+Empty set (0.00 sec)
+
+MariaDB [movie_booking]> insert into movie values(1,"bahubali","16.00","20-02-20",5,10,200,100);
+Query OK, 1 row affected (1.13 sec)
+
+MariaDB [movie_booking]> insert into movie values(2,"darbar","19.00","20-02-20",2,10,300,150);
+Query OK, 1 row affected (0.34 sec)
+
+MariaDB [movie_booking]> delete from movie where mid=2;
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    1 | bahubali | 16.00      | 20-02-20 |     5 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+1 row in set (0.00 sec)
+
+MariaDB [movie_booking]> insert into movie values(1,"bahubali","16.00","20-02-20",5,10,200,100);
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [movie_booking]> insert into movie values(2,"darbar","19.00","20-02-20",2,10,300,150);
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [movie_booking]> select * from movie;
+Empty set (0.00 sec)
+
+MariaDB [movie_booking]> insert into movie values(2,"darbar","19.00","20-02-20",2,10,300,150);
+Query OK, 1 row affected (0.11 sec)
+
+MariaDB [movie_booking]> insert into movie values(1,"bahubali","16.00","20-02-20",5,10,200,100);
+Query OK, 1 row affected (0.10 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+--------+------------+----------+-------+------------+--------+--------+
+| mid  | mname  | showtiming | date     | seats | totalseats | fprice | sprice |
++------+--------+------------+----------+-------+------------+--------+--------+
+|    2 | darbar | 19.00      | 20-02-20 |     2 |         10 |    300 |    150 |
++------+--------+------------+----------+-------+------------+--------+--------+
+1 row in set (0.00 sec)
+
+MariaDB [movie_booking]> insert into movie values(3,"parasite","20.00","20-02-20",9,10,200,75);
+Query OK, 1 row affected (0.10 sec)
+
+MariaDB [movie_booking]> insert into movie values(2,"darbar","19.00","20-02-20",2,10,300,150);
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [movie_booking]> insert into movie values(1,"bahubali","16.00","20-02-20",5,10,200,100);
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    2 | darbar   | 19.00      | 20-02-20 |     2 |         10 |    300 |    150 |
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    2 | darbar   | 19.00      | 20-02-20 |     2 |         10 |    300 |    150 |
+|    1 | bahubali | 16.00      | 20-02-20 |     5 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+4 rows in set (0.01 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    1 | bahubali | 16.00      | 20-02-20 |     5 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+2 rows in set (0.00 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    1 | B        | N          | B        |     1 |         12 |    100 |    200 |
++------+----------+------------+----------+-------+------------+--------+--------+
+2 rows in set (0.01 sec)
+
+MariaDB [movie_booking]> select username,password from user where username="srivk" and password="srivk";
++----------+----------+
+| username | password |
++----------+----------+
+| srivk    | srivk    |
++----------+----------+
+1 row in set (0.17 sec)
+
+MariaDB [movie_booking]> insert into movie values(1,"bahubali","6.00","20-02-20",5,10,200,100);
+Query OK, 1 row affected (1.58 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    1 | B        | N          | B        |     1 |         12 |    100 |    200 |
+|    1 | bahubali | 6.00       | 20-02-20 |     5 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+3 rows in set (0.07 sec)
+
+MariaDB [movie_booking]> insert into movie values(2,"frozen","6.00","20-02-20",0,10,200,100););
+Query OK, 1 row affected (0.32 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [movie_booking]> insert into movie values(2,"frozen","6.00","20-02-20",0,10,200,100);
+Query OK, 1 row affected (0.05 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    1 | B        | N          | B        |     1 |         12 |    100 |    200 |
+|    1 | bahubali | 6.00       | 20-02-20 |     5 |         10 |    200 |    100 |
+|    2 | frozen   | 6.00       | 20-02-20 |     0 |         10 |    200 |    100 |
+|    2 | frozen   | 6.00       | 20-02-20 |     0 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+5 rows in set (0.00 sec)
+
+MariaDB [movie_booking]> delete from movie where mid=2;
+Query OK, 2 rows affected (0.17 sec)
+
+MariaDB [movie_booking]> insert into movie values(2,"frozen","6.00","20-02-20",0,10,200,100);
+Query OK, 1 row affected (0.06 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    1 | B        | N          | B        |     4 |         12 |    100 |    200 |
+|    1 | bahubali | 6.00       | 20-02-20 |     4 |         10 |    200 |    100 |
+|    2 | frozen   | 6.00       | 20-02-20 |     0 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+4 rows in set (0.04 sec)
+
+MariaDB [movie_booking]> create table customer(uid int,uname varchar(255),email varchar(255),phoneno varchar(255),dob varchar(255),password varchar(255));
+Query OK, 0 rows affected (1.41 sec)
+
+MariaDB [movie_booking]> select * from customer;
++------+----------+------------------------+------------+------------+----------+
+| uid  | uname    | email                  | phoneno    | dob        | password |
++------+----------+------------------------+------------+------------+----------+
+|    1 | srimathi | srimathiravi1588@gmail | 8610726028 | 08/08/2001 | vkas0511 |
++------+----------+------------------------+------------+------------+----------+
+1 row in set (0.00 sec)
+
+MariaDB [movie_booking]> select * from user;
++----------+----------+
+| username | password |
++----------+----------+
+| srivk    | srivk    |
+| srimathi | vkas0511 |
++----------+----------+
+2 rows in set (0.00 sec)
+
+MariaDB [movie_booking]> create table booking(uid int,mid int,nos int,price int);
+Query OK, 0 rows affected (0.66 sec)
+
+MariaDB [movie_booking]> create table bookings(uname varchar(255),mid int,nos int,price int);
+Query OK, 0 rows affected (0.36 sec)
+
+MariaDB [movie_booking]> select * from bookings;
++-------+------+------+-------+
+| uname | mid  | nos  | price |
++-------+------+------+-------+
+| null  |    1 |    1 |   200 |
++-------+------+------+-------+
+1 row in set (0.00 sec)
+
+MariaDB [movie_booking]> select * from bookings;
++-------+------+------+-------+
+| uname | mid  | nos  | price |
++-------+------+------+-------+
+| null  |    1 |    1 |   200 |
+| srivk |    1 |    1 |   200 |
++-------+------+------+-------+
+2 rows in set (0.00 sec)
+
+MariaDB [movie_booking]> create table bookings2(uname varchar(255),mname varchar(255),nos int,price int);
+Query OK, 0 rows affected (1.23 sec)
+
+MariaDB [movie_booking]> select * from bookings2;
++-------+----------+------+-------+
+| uname | mname    | nos  | price |
++-------+----------+------+-------+
+| null  | bahubali |    1 |   200 |
+| null  | bahubali |    1 |   200 |
+| null  | bahubali |    1 |   200 |
++-------+----------+------+-------+
+3 rows in set (0.02 sec)
+
+MariaDB [movie_booking]> create table bookings3(uname varchar(255),mname varchar(255),nos int,price int,showtiming varchar(255));
+Query OK, 0 rows affected (0.66 sec)
+
+MariaDB [movie_booking]> select * from bookings3;
++-------+----------+------+-------+------------+
+| uname | mname    | nos  | price | showtiming |
++-------+----------+------+-------+------------+
+| srivk | bahubali |    1 |   200 | 6.00       |
++-------+----------+------+-------+------------+
+1 row in set (0.00 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    1 | B        | N          | B        |     0 |         12 |    100 |    200 |
+|    1 | bahubali | 6.00       | 20-02-20 |     0 |         10 |    200 |    100 |
+|    2 | frozen   | 6.00       | 20-02-20 |     0 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+4 rows in set (0.21 sec)
+
+MariaDB [movie_booking]> delete from movie where mid=1;
+Query OK, 2 rows affected (0.56 sec)
+
+MariaDB [movie_booking]> insert into movie values(1,"bahubali","6.00","20-02-20",5,10,200,100);
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    2 | frozen   | 6.00       | 20-02-20 |     0 |         10 |    200 |    100 |
+|    1 | bahubali | 6.00       | 20-02-20 |     5 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+3 rows in set (0.00 sec)
+
+MariaDB [movie_booking]> insert into movie values(4,"frozen","15.00","20-02-20",2,10,200,100);
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [movie_booking]> insert into movie values(5,"darbar","9.00","20-02-20",2,10,300,150);
+Query OK, 1 row affected (0.12 sec)
+
+MariaDB [movie_booking]> insert into movie values(6,"bahubali","9.00","20-02-20",5,10,200,100);
+Query OK, 1 row affected (0.09 sec)
+
+MariaDB [movie_booking]> select * from movie;
++------+----------+------------+----------+-------+------------+--------+--------+
+| mid  | mname    | showtiming | date     | seats | totalseats | fprice | sprice |
++------+----------+------------+----------+-------+------------+--------+--------+
+|    3 | parasite | 20.00      | 20-02-20 |     9 |         10 |    200 |     75 |
+|    2 | frozen   | 6.00       | 20-02-20 |     0 |         10 |    200 |    100 |
+|    1 | bahubali | 6.00       | 20-02-20 |     5 |         10 |    200 |    100 |
+|    4 | frozen   | 15.00      | 20-02-20 |     2 |         10 |    200 |    100 |
+|    5 | darbar   | 9.00       | 20-02-20 |     2 |         10 |    300 |    150 |
+|    6 | bahubali | 9.00       | 20-02-20 |     5 |         10 |    200 |    100 |
++------+----------+------------+----------+-------+------------+--------+--------+
+6 rows in set (0.00 sec)
+
+MariaDB [movie_booking]> select * from admin;
++----------+
+| password |
++----------+
+| admin    |
++----------+
+1 row in set (0.08 sec)
+
+MariaDB [movie_booking]> select * from user;
++----------+----------+
+| username | password |
++----------+----------+
+| srivk    | srivk    |
+| srimathi | vkas0511 |
++----------+----------+
+2 rows in set (0.03 sec)
+
+MariaDB [movie_booking]> insert into user values("virat","anushka");
+Query OK, 1 row affected (0.07 sec)
+
+MariaDB [movie_booking]> select * from user;
++----------+----------+
+| username | password |
++----------+----------+
+| srivk    | srivk    |
+| srimathi | vkas0511 |
+| virat    | anushka  |
++----------+----------+
+3 rows in set (0.00 sec)
+
+MariaDB [movie_booking]> select * from customer;
++------+----------+------------------------+------------+------------+----------+
+| uid  | uname    | email                  | phoneno    | dob        | password |
++------+----------+------------------------+------------+------------+----------+
+|    1 | srimathi | srimathiravi1588@gmail | 8610726028 | 08/08/2001 | vkas0511 |
+|    2 | srivk    | sha123@gmail.com       | 9841368559 | 08/08/2001 | fri908   |
++------+----------+------------------------+------------+------------+----------+
+2 rows in set (0.00 sec)
+
+MariaDB [movie_booking]>
