@@ -1,1 +1,2 @@
-# online-movie-booking-wt-project
+#
+Online Movie Booking System with Software Requirement Specification
